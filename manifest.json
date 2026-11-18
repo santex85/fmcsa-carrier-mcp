@@ -1,0 +1,70 @@
+{
+  "manifest_version": "0.4",
+  "name": "fmcsa-carrier-mcp",
+  "display_name": "FMCSA Carrier Vetting",
+  "version": "0.1.0",
+  "description": "Vet US motor carriers and brokers from FMCSA open data: authority, insurance, OOS, safety.",
+  "long_description": "For freight brokers, shippers and 3PLs vetting US motor carriers and brokers before tendering a load. USDOT/MC lookup, operating authority, insurance, out-of-service status, safety data and red flags, from FMCSA open data on data.transportation.gov (Socrata SODA API). No API key needed.",
+  "author": {
+    "name": "santex85",
+    "url": "https://github.com/santex85"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/santex85/fmcsa-carrier-mcp"
+  },
+  "homepage": "https://github.com/santex85/fmcsa-carrier-mcp",
+  "support": "https://github.com/santex85/fmcsa-carrier-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "fmcsa",
+    "freight",
+    "carrier",
+    "usdot",
+    "logistics"
+  ],
+  "server": {
+    "type": "uv",
+    "entry_point": "src/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "src/server.py"
+      ],
+      "env": {
+        "MCP_TRANSPORT": "stdio"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "lookup_carrier",
+      "description": "Look up one US motor carrier / broker / freight forwarder by USDOT number or MC/FF/MX docket number."
+    },
+    {
+      "name": "search_carriers",
+      "description": "Search FMCSA-registered carriers/brokers by name (legal or DBA name, case-insensitive substring)."
+    },
+    {
+      "name": "check_authority",
+      "description": "Full compliance check of one carrier/broker: operating authority, insurance, orders, out-of-service, safety."
+    },
+    {
+      "name": "red_flags",
+      "description": "Heuristic fraud/risk screen for one carrier or broker (double-brokering, identity theft, chameleon carriers)."
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  }
+}
