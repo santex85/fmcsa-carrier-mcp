@@ -1,0 +1,10 @@
+version: 1
+name: fmcsa-carrier-mcp
+description: US freight carrier and broker vetting from FMCSA open data (USDOT/MC lookup, operating authority, insurance, out-of-service, safety, fraud red flags)
+runtime: python
+entry: src/server.py
+build:
+  install: pip install -r requirements.txt
+startCommand:
+  type: http
+  command: python src/server.py
