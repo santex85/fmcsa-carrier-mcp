@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.santex85/fmcsa-carrier-mcp",
+  "title": "FMCSA Carrier Vetting",
+  "description": "Vet US motor carriers and brokers from FMCSA open data: authority, insurance, OOS, safety.",
+  "repository": {
+    "url": "https://github.com/santex85/fmcsa-carrier-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/santex85/fmcsa-carrier-mcp/releases/download/v0.1.0/fmcsa-carrier-mcp.mcpb",
+      "version": "0.1.0",
+      "fileSha256": "222ef78a71466f52a353cb63fc4f02d3a31642c366eb6c502698863c1c1bf258",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
